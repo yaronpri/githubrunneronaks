@@ -2,8 +2,8 @@
 # This is a basic workflow to help you get started with Actions
 name: DeployRunnerAKS
 env:
-  RESOURCE_GROUP: 'aksrunners1-rg'
-  CLUSTER_NAME: 'aksrunners1-aks'
+  RESOURCE_GROUP: 'aksrunners-rg'
+  CLUSTER_NAME: 'aksrunners-aks'
   ADMIN_USERNAME: 'aksadmin'
 # Controls when the action will run. 
 on:
