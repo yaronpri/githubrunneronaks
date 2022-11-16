@@ -1,7 +1,10 @@
 
 # This is a basic workflow to help you get started with Actions
 name: DeployRunnerAKS
-
+env:
+  RESOURCE_GROUP: 'aksrunners-rg'
+  CLUSTER_NAME: 'aksrunners-aks'
+  ADMIN_USERNAME: 'aksadmin'
 # Controls when the action will run. 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -11,6 +14,7 @@ on:
       - main
     paths: 
       - 'infra/**' 
+      - 'runner/**'
 permissions:
   id-token: write # This is required for requesting the JWT
   contents: read  # This is required for actions/checkout
@@ -27,9 +31,6 @@ jobs:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-    - name: 'Run Azure CLI commands'
-      run: |
-          pwd
     - name: deploy
       uses: azure/arm-deploy@v1
       with:
@@ -37,5 +38,18 @@ jobs:
         scope: subscription
         region: westeurope
         template: ./infra/main.bicep
-        parameters: ./infra/main.parameters.json sshpublickey="${{ secrets.SSH_PUBLIC_KEY }}"
+        parameters: resourcegroup="${{ env.RESOURCE_GROUP }}" aksclustername="${{ env.CLUSTER_NAME }}" adminusername="${{ env.ADMIN_USERNAME }}" sshpublickey="${{ secrets.SSH_PUBLIC_KEY }}"
         failOnStdErr: false
+    - name: Set AKS context
+      id: set-context
+      uses: azure/aks-set-context@v3
+      with:
+        resource-group: '${{ env.RESOURCE_GROUP }}' 
+        cluster-name: '${{ env.CLUSTER_NAME }}'
+    - name: 'Run Azure CLI commands'
+      run: |
+          kubectl apply -f ./runner/cert-manager.yaml 
+          kubectl create -f ./runner/actions-runner-controller.yaml 
+          kubectl create secret generic controller-manager  -n actions-runner-system --from-literal=github_token=${secrets.RUNNER_TOKEN}
+          kubectl apply -f runnerdeployment.yaml 
+          kubectl apply -f hra-scaler.yaml
