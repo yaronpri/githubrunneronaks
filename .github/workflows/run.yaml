@@ -37,5 +37,5 @@ jobs:
         scope: subscription
         region: westeurope
         template: ./infra/main.bicep
-        parameters: ./infra/main.parameters.json sshpublickey='${{ secrets.SSH_PUBLIC_KEY }}'
+        parameters: ./infra/main.parameters.json sshpublickey=${{ secrets.SSH_PUBLIC_KEY }}
         failOnStdErr: false

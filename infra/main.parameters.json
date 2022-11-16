@@ -7,6 +7,9 @@
     },
     "adminusername": {
       "value": "aksadmin"
+    },
+    "sshpublickey": {
+      "value": ""
     }
   }
 }
