@@ -7,7 +7,7 @@ param location string = deployment().location
 @description('Prefix for all deployed resources')
 param prefix string
 
-@description('AKS admin')
+@description('AKS admin user')
 param adminusername string
 
 @description('SSH Public Key')
