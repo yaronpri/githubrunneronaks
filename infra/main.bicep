@@ -5,7 +5,7 @@ param location string = deployment().location
 @minLength(1)
 @maxLength(16)
 @description('Prefix for all deployed resources')
-param prefix string
+param resourcegroup string
 
 @description('AKS admin user')
 param adminusername string
@@ -17,18 +17,18 @@ param sshpublickey string
 
 /* RESOURCE GROUP */
 resource rg 'Microsoft.Resources/resourceGroups@2020-06-01' = {
-  name: '${prefix}-rg'
+  name: resourcegroup
   location: location
 }
 
 module aks 'resources/aks.bicep' = {
-  name: '${prefix}-aks'
+  name: '${resourcegroup}-aks'
   scope: rg
   params: {
-    clusterName: '${prefix}-aks'
+    clusterName: '${resourcegroup}-aks'
     adminusername: adminusername
     location: location
-    clusterDNSPrefix: '${prefix}-aks'        
+    clusterDNSPrefix: '${resourcegroup}-aks'        
     sshPubKey: sshpublickey
   }
 }
