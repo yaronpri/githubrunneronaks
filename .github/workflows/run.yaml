@@ -31,7 +31,7 @@ jobs:
           az account show
           az group list
           pwd
-          cat test.txt
+          ls ${{ github.workspace }}
     - name: deploy
       uses: azure/arm-deploy@v1
       with:
