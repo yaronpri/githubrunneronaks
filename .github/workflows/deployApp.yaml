@@ -16,6 +16,7 @@ on:
 permissions:
   id-token: write # This is required for requesting the JWT
   contents: read  # This is required for actions/checkout
+  actions: read
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build-and-deploy:
@@ -35,6 +36,9 @@ jobs:
       with:
         resource-group: '${{ env.RESOURCE_GROUP }}' 
         cluster-name: '${{ env.CLUSTER_NAME }}'
-    - name: Deploy sample app
-      run: |
-          kubectl apply -f ./sampleapp/app-deployment.yaml
+    - name: Deploy
+      uses: Azure/k8s-deploy@v3.1
+      with:        
+        manifests: |
+          ./sampleapp/app-deployment.yaml
+        action: deploy
