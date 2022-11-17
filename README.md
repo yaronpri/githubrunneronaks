@@ -1,10 +1,10 @@
-# Auto-Scale GitHub Actions Runner Controller On AKS (Azure Kubernetes Service) 
+# Auto-Scale Self-Hosted GitHub Runners On AKS (Azure Kubernetes Service) 
 [![DeployRunnerAKS](https://github.com/yaronpri/GithubRunnerOnAKS/actions/workflows/run.yaml/badge.svg)](https://github.com/yaronpri/GithubRunnerOnAKS/actions/workflows/run.yaml)
 
 This repo will demo shortly the following:
-- Bicep deployment, which responsible to the following:
+- Bicep deployment, which responsible to following tasks:
   - AKS deployment
-  - Install GitHub Actions Runner Controller (ARC) on AKS with auto-scale configuration
+  - Install [GitHub Actions Runner Controller (ARC)](https://github.com/actions-runner-controller/actions-runner-controller/blob/master/docs/detailed-docs.md) on AKS with auto-scale configuration
 - Deploying sample app to AKS cluster using without keeping any Azure credentials in the Github account
 
 ## Prerequisites
@@ -15,4 +15,8 @@ This repo will demo shortly the following:
   - name: RUNNER_TOKEN, value: Log-in to a GitHub account that has admin privileges for the repository, and [create a personal access token](https://github.com/settings/tokens/new) with the appropriate scopes - for this demo repository runner - need only repo (Full Control)
 
 ## Deploy AKS and Github Action runner with Bicep
-First step is to deploy an AKS cluster and install Github Action Runner on it, in order to achieve it trigger manually the GitHub action - DeployRunnerAKS - you can change the resource group, cluster name and admin user name by modifiying [the action file](.github/workflows/run.yaml)
+The first step is to deploy an AKS cluster and install Github Action Runners by triggering manually the GitHub action - DeployRunnerAKS - you can change the resource group, cluster name and admin user name by modifiying [the action file](.github/workflows/run.yaml)
+The second step is to deploy the sample app by trigerring manually the Github action - DeploySampleApp
+
+You will notice that the deployment of the app done by the self-hosted GitHub runners.
+In order to check the auto-scale - just trigger the 'DeploySampleApp' several times and you will notice that additional runners being added.
