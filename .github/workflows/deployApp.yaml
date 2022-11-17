@@ -23,10 +23,6 @@ jobs:
     steps:
     - name: Checkout source code 
       uses: actions/checkout@v3
-    - name: Run Azure CLI docker
-      run: |
-        docker run -it mcr.microsoft.com/azure-cli:latest bash
-        az version
     - name: 'Az CLI login'
       uses: azure/login@v1
       with:
