@@ -16,3 +16,8 @@ RUN sudo apt update -y \
   && sudo apt install -y azure-cli 
 
 RUN sudo rm -rf /var/lib/apt/lists/*
+
+#USER root
+ADD kubectl .
+RUN sudo chmod +x ./kubectl
+RUN sudo mv kubectl /usr/local/bin

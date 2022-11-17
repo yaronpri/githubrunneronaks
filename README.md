@@ -15,6 +15,10 @@ This repo will demo shortly the following:
   - name: SSH_PUBLIC_KEY, value: [public key of ssh key which will be used during AKS creation]
   - name: RUNNER_TOKEN, value: Log-in to a GitHub account that has admin privileges for the repository, and [create a personal access token](https://github.com/settings/tokens/new) with the appropriate scopes - for this demo repository runner - need only repo (Full Control)
 
+## Important Tweak 
+In order to have the runner with AZ CLI and kubectl utilities already installed - I compiled a new image yaronpr/actions-runner:latest and update the [actions-runner-controller](runner/actions-runner-controller.yaml) to pass this image as one of the args for controller-manager 
+You have in the repo the [Dockerfile](Dockerfile) and the kubectl utility (v.1.25.4)
+
 ## Deployment
 ### 1st Step - Use Bicep to deploy AKS and self-hosted Github Runners 
 Deploy an AKS cluster and install Github Action Runners by triggering manually the GitHub action - DeployRunnerAKS - you can change the resource group, region, cluster name and admin user name by modifiying [the action file](.github/workflows/deployIaC.yaml)
