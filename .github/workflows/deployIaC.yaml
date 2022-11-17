@@ -5,6 +5,7 @@ env:
   RESOURCE_GROUP: 'aksrunners-rg'
   CLUSTER_NAME: 'aksrunners-aks'
   ADMIN_USERNAME: 'aksadmin'
+  REGION: 'westeurope'
 # Controls when the action will run. 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -36,7 +37,7 @@ jobs:
       with:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         scope: subscription
-        region: westeurope
+        region: ${{ env.REGION }}
         template: ./infra/main.bicep
         parameters: resourcegroup="${{ env.RESOURCE_GROUP }}" aksclustername="${{ env.CLUSTER_NAME }}" adminusername="${{ env.ADMIN_USERNAME }}" sshpublickey="${{ secrets.SSH_PUBLIC_KEY }}"
         failOnStdErr: false

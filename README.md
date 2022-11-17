@@ -17,7 +17,7 @@ This repo will demo shortly the following:
 
 ## Deployment
 ### 1st Step - Use Bicep to deploy AKS and self-hosted Github Runners 
-Deploy an AKS cluster and install Github Action Runners by triggering manually the GitHub action - DeployRunnerAKS - you can change the resource group, cluster name and admin user name by modifiying [the action file](.github/workflows/deployIaC.yaml)
+Deploy an AKS cluster and install Github Action Runners by triggering manually the GitHub action - DeployRunnerAKS - you can change the resource group, region, cluster name and admin user name by modifiying [the action file](.github/workflows/deployIaC.yaml)
 
 ### 2nd step - Deploy sample app using self-hosted runner 
 The second step is to deploy the sample app by trigerring manually the Github action - DeploySampleApp.
