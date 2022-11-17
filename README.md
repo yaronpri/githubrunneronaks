@@ -1,5 +1,6 @@
 # Auto-Scale Self-Hosted GitHub Runners On AKS (Azure Kubernetes Service) 
-[![DeployRunnerAKS](https://github.com/yaronpri/GithubRunnerOnAKS/actions/workflows/run.yaml/badge.svg)](https://github.com/yaronpri/GithubRunnerOnAKS/actions/workflows/run.yaml)
+[![DeployRunnerAKS](https://github.com/yaronpri/GithubRunnerOnAKS/actions/workflows/deployIaC.yaml/badge.svg)](https://github.com/yaronpri/GithubRunnerOnAKS/actions/workflows/deployIaC.yaml)
+[![DeploySampleApp](https://github.com/yaronpri/GithubRunnerOnAKS/actions/workflows/deployApp.yaml/badge.svg)](https://github.com/yaronpri/GithubRunnerOnAKS/actions/workflows/deployApp.yaml)
 
 This repo will demo shortly the following:
 - Bicep deployment, which responsible to following tasks:
