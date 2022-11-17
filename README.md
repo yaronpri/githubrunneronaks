@@ -16,7 +16,7 @@ This repo will demo shortly the following:
   - name: RUNNER_TOKEN, value: Log-in to a GitHub account that has admin privileges for the repository, and [create a personal access token](https://github.com/settings/tokens/new) with the appropriate scopes - for this demo repository runner - need only repo (Full Control)
 
 ## Deploy AKS and Github Action runner with Bicep
-The first step is to deploy an AKS cluster and install Github Action Runners by triggering manually the GitHub action - DeployRunnerAKS - you can change the resource group, cluster name and admin user name by modifiying [the action file](.github/workflows/run.yaml)
+The first step is to deploy an AKS cluster and install Github Action Runners by triggering manually the GitHub action - DeployRunnerAKS - you can change the resource group, cluster name and admin user name by modifiying [the action file](.github/workflows/deployIaC.yaml)
 The second step is to deploy the sample app by trigerring manually the Github action - DeploySampleApp
 
 You will notice that the deployment of the app done by the self-hosted GitHub runners.
