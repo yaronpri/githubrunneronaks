@@ -6,7 +6,7 @@ This repo will demo shortly the following:
 - Bicep deployment, which responsible to following tasks:
   - AKS deployment
   - Install [GitHub Actions Runner Controller (ARC)](https://github.com/actions-runner-controller/actions-runner-controller/blob/master/docs/detailed-docs.md) on AKS with auto-scale configuration
-- Deploying sample app to AKS cluster using without keeping any Azure credentials in the Github account
+- Deploying sample app to AKS cluster without keeping Azure password in Github account
 
 ## Prerequisites
 - Fork this repo to your github account
@@ -29,5 +29,5 @@ The second step is to deploy the sample app by trigerring manually the Github ac
 You will notice that the deployment of the app done by the self-hosted GitHub runners.
 In order to check the auto-scale - just trigger the 'DeploySampleApp' several times and you will notice that additional runners being added.
 
-### Gaps
+## Gaps
 - Find a better way to wait for runner-controller to be on Running state
