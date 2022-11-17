@@ -10,10 +10,11 @@ This repo will demo shortly the following:
 
 ## Prerequisites
 - Fork this repo to your github account
-- In the forked repo [Configure OpenID Connect in Azure](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)
+- In the forked repo [Configure OpenID Connect in Azure](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Clinux)
 - Create additional GitHub Secrets in the repo: 
   - name: SSH_PUBLIC_KEY, value: [public key of ssh key which will be used during AKS creation]
   - name: RUNNER_TOKEN, value: Log-in to a GitHub account that has admin privileges for the repository, and [create a personal access token](https://github.com/settings/tokens/new) with the appropriate scopes - for this demo repository runner - need only repo (Full Control)
+- Update the repo name in [runnerdeployment.yaml](runner/runnerdeployment.yaml) to yours or change it to work at organization level
 
 ## Important Tweak 
 In order to have the runner with AZ CLI and kubectl utilities already installed - I compiled a new image yaronpr/actions-runner:latest and update the [actions-runner-controller](runner/actions-runner-controller.yaml) to pass this image as one of the args for controller-manager 

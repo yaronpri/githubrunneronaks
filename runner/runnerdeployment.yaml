@@ -7,3 +7,4 @@ spec:
   template:
     spec:
       repository: yaronpri/GithubRunnerOnAKS
+      #organization: <YOUR ORG NAME IF WANT TO WORK AT ORG LEVEL>  
