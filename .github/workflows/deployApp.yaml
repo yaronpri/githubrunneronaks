@@ -22,7 +22,6 @@ jobs:
     runs-on: self-hosted
     steps:
     - name: Checkout source code 
-      uses: actions/checkout@v3   
-    - name: Deploy sample app
-      run: |
-          kubectl apply -f ./sampleapp/app-deployment.yaml
+      uses: actions/checkout@v3
+    - name: Docker build test
+      run: docker build -t yaronpr/nginx .
