@@ -1,4 +1,4 @@
-# Auto-Scale Self-Hosted GitHub Runners On AKS (Azure Kubernetes Service) 
+# Self-Hosted GitHub Actions Runner On AKS (Azure Kubernetes Service) with auto-scale option
 [![DeployRunnerAKS](https://github.com/yaronpri/GithubRunnerOnAKS/actions/workflows/deployIaC.yaml/badge.svg)](https://github.com/yaronpri/GithubRunnerOnAKS/actions/workflows/deployIaC.yaml)
 [![DeploySampleApp](https://github.com/yaronpri/GithubRunnerOnAKS/actions/workflows/deployApp.yaml/badge.svg)](https://github.com/yaronpri/GithubRunnerOnAKS/actions/workflows/deployApp.yaml)
 
@@ -6,7 +6,7 @@ This repo will demo shortly the following:
 - Bicep deployment, which responsible to following tasks:
   - AKS deployment
   - Install [GitHub Actions Runner Controller (ARC)](https://github.com/actions-runner-controller/actions-runner-controller/blob/master/docs/detailed-docs.md) on AKS with auto-scale configuration
-- Deploying sample app to AKS cluster without keeping Azure password in Github account
+- Deploying sample app using the installed self-hosted runner to AKS cluster without keeping Azure password in Github account
 
 ## Prerequisites
 - Fork this repo to your github account
