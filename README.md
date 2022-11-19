@@ -20,6 +20,8 @@ This repo will demo shortly the following:
 In order to have the runner with AZ CLI and kubectl utilities already installed - I compiled a new image [yaronpr/actions-runner:latest](https://hub.docker.com/r/yaronpr/actions-runner) and update the [actions-runner-controller](runner/actions-runner-controller.yaml) in order to use it as one of the args for controller-manager 
 <br>You have in the repo the [Dockerfile](Dockerfile) and the kubectl utility (v.1.25.4)
 
+##### You can read more about it in [this](https://freshbrewed.science/2021/12/01/gh-actions.html) great blog post
+
 ## Deployment
 ### 1st Step - Use Bicep to deploy AKS and self-hosted Github Runners 
 Deploy an AKS cluster and install Github Action Runners by triggering manually the GitHub action - DeployRunnerAKS 
