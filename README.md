@@ -13,7 +13,9 @@ This repo will demo shortly the following:
 - In the forked repo [Configure OpenID Connect in Azure](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Clinux)
 - Create additional GitHub Secrets in the repo: 
   - name: SSH_PUBLIC_KEY, value: [public key of ssh key which will be used during AKS creation]
-  - name: RUNNER_TOKEN, value: Log-in to a GitHub account that has admin privileges for the repository, and [create a personal access token](https://github.com/settings/tokens/new) with the appropriate scopes - for this demo repository runner - need only repo (Full Control)
+  - name: RUNNER_TOKEN, value: Log-in to a GitHub account that has admin privileges for the repository, and [create a personal access token](https://github.com/settings/tokens/new) with the appropriate scopes - for this demo:
+  -  repo (Full Control)
+  -  write:packages
 
 
 ## Important Tweak 
