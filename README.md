@@ -9,6 +9,10 @@ This repo will demo shortly the following:
   - Install [GitHub Actions Runner Controller (ARC)](https://github.com/actions-runner-controller/actions-runner-controller/blob/master/docs/detailed-docs.md) on AKS with auto-scale configuration
 - Deploying sample app using the installed self-hosted runner to AKS cluster without keeping Azure password in Github account
 
+## Simple Diagram of End State
+After deploy the below instuctions, the outcome will be:
+![alt text](image/sketch.png)
+
 ## Prerequisites
 - Fork this repo to your github account
 - In the forked repo [Configure OpenID Connect in Azure](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Clinux)
