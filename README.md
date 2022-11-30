@@ -24,7 +24,7 @@ After deploy the below instuctions, the outcome will be:
 
 
 ## Important Tweak 
-In order to have the runner with AZ CLI and kubectl utilities already installed - I compiled a new image [yaronpr/actions-runner:latest](https://hub.docker.com/r/yaronpr/actions-runner) and update the [actions-runner-controller](runner/actions-runner-controller.yaml) in order to use it as one of the args for controller-manager 
+In order to have the runner with AZ CLI and kubectl utilities already installed - I compiled a new image [ghcr.io/yaronpri/githubrunneronaks:main] and update the [actions-runner-controller](runner/actions-runner-controller.yaml) in order to use it as one of the args for controller-manager 
 <br>You have in the repo the [Dockerfile](Dockerfile) and the kubectl utility (v.1.25.4)
 
 ##### You can read more about it in [this](https://freshbrewed.science/2021/12/01/gh-actions.html) great blog post
