@@ -1,0 +1,22 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: example-runnerdeploy
+spec:
+  replicas: 1
+  template:
+    spec:
+      repository: yaronpri/GithubRunnerOnAKS
+      containers:
+      - name: runner
+        env:
+        - name: SSL_CERT_DIR
+          value: /etc/ssl/certs
+        volumeMounts:
+        - mountPath: /etc//ssl/certs
+          name: ghe-cert
+          readonly: true
+      volumes:
+      - name: ghe-cert
+        secret:
+          secretName: ghecert

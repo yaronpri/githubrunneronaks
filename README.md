@@ -40,5 +40,22 @@ The second step is to deploy the sample app by trigerring manually the Github ac
 You will notice that the deployment of the app done by the self-hosted GitHub runners.
 In order to check the auto-scale - just trigger the 'DeploySampleApp' several times and you will notice that additional runners being added.
 
+## How to connect the runner to GitHub Server Enterprise (GHES)
+In order to connect to GHES, a few changes need to be implemented in [actions-runner-controller.yaml](runner-on-ghes/actions-runner-controller.yaml):
+
+Also,
+As probably the GHES is installed with certificate you should get the root/intermediate CA and create tls secret in the actions-runner-system and default (where the runner is deployed) namespace
+
+e.g. 
+```
+kubectl create secret generic ghecert -n actions-runner-system --from-file=ca.crt
+kubectl create secret generic ghecert --from-file=ca.crt
+```
+
+In order for the runner to connect GHES with the correct certificate, need to change the runner deployment see [here](runner-on-ghes/runnerdeployment.yaml)
+
+
+#### 
+
 ## Gaps
 - Find a better way to wait for runner-controller to be on Running state
