@@ -24,11 +24,22 @@ resource rg 'Microsoft.Resources/resourceGroups@2020-06-01' = {
   location: location
 }
 
+/* USER MANAGED IDENTITY */
+module identity 'resources/managedid.bicep' = {
+  name: '${rg.name}-identity'
+  scope: rg
+  params: {
+    location: location
+    managedIdentityName: 'toLower(adminusername)-id'
+  }
+}
+
 module aks 'resources/aks.bicep' = {
   name: aksclustername
   scope: rg
   params: {
     clusterName: aksclustername
+    managedidname: identity.name
     adminusername: adminusername
     location: location
     clusterDNSPrefix: aksclustername       
