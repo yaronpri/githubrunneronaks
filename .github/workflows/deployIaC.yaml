@@ -8,6 +8,7 @@ env:
   REGION: 'westeurope'
   REGISTRY: ghcr.io
   IMAGE_NAME: "${{ github.repository }}"
+  RUNNER_IDENTITY: "runneridentity"
 # Controls when the action will run. 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -41,7 +42,7 @@ jobs:
         scope: subscription
         region: ${{ env.REGION }}
         template: ./infra/main.bicep
-        parameters: resourcegroup="${{ env.RESOURCE_GROUP }}" aksclustername="${{ env.CLUSTER_NAME }}" adminusername="${{ env.ADMIN_USERNAME }}" sshpublickey="${{ secrets.SSH_PUBLIC_KEY }}"
+        parameters: resourcegroup="${{ env.RESOURCE_GROUP }}" aksclustername="${{ env.CLUSTER_NAME }}" adminusername="${{ env.ADMIN_USERNAME }}" sshpublickey="${{ secrets.SSH_PUBLIC_KEY }}" runneridentity="${{ env.RUNNER_IDENTITY }}"
         failOnStdErr: false
     - name: Set AKS context
       id: set-context

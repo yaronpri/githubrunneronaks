@@ -13,6 +13,9 @@
     },
     "sshpublickey": {
       "value": "ssh-rsa"
+    },
+    "runneridentity": {
+      "value": "runneridentity"
     }
   }
 }

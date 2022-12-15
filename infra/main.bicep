@@ -17,6 +17,8 @@ param adminusername string
 @secure()
 param sshpublickey string
 
+@description('Runner Managed Identity')
+param runneridentity string
 
 /* RESOURCE GROUP */
 resource rg 'Microsoft.Resources/resourceGroups@2020-06-01' = {
@@ -30,7 +32,7 @@ module identity 'resources/managedid.bicep' = {
   scope: rg
   params: {
     location: location
-    managedIdentityName: 'toLower(adminusername)-id'
+    managedIdentityName: runneridentity
   }
 }
 
