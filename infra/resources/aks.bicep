@@ -11,16 +11,12 @@ param clusterDNSPrefix string
 param adminusername string
 
 @description('User Managed Identity Name')
-param managedidname string
+param managedresourceid string
 
 
 @description('AKS node ssh public key')
 @secure()
 param sshPubKey string
-
-resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2022-01-31-preview' existing = {
-  name: managedidname
-}
 
 resource akscluster 'Microsoft.ContainerService/managedClusters@2022-05-02-preview' = {
   name: clusterName
@@ -28,7 +24,7 @@ resource akscluster 'Microsoft.ContainerService/managedClusters@2022-05-02-previ
   identity: {
     type:'UserAssigned' 
     userAssignedIdentities: {
-      '${managedIdentity.id}': {}
+      '${managedresourceid}': {}
     }
   }
   properties: {

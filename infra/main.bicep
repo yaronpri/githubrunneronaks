@@ -41,7 +41,7 @@ module aks 'resources/aks.bicep' = {
   scope: rg
   params: {
     clusterName: aksclustername
-    managedidname: runneridentity
+    managedresourceid: identity.outputs.managedIdentityResourceId
     adminusername: adminusername
     location: location
     clusterDNSPrefix: aksclustername       
